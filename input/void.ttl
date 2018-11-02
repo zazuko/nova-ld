@@ -1,0 +1,36 @@
+@base <http://lod.opentransportdata.swiss/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix wv: <http://vocab.org/waiver/terms/norms> .        
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix schema: <http://schema.org/>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+
+
+<.well-known/void> a void:DatasetDescription;
+    foaf:topic <dataset/nova> .
+
+##
+## Datasets
+##
+
+<dataset/nova> a void:Dataset, dcat:Dataset ;
+    dcterms:title "NOVA"@de;
+    dcterms:description "NOVA"@de;
+    dcterms:publisher <org/FOT>;
+    dcterms:creator <org/FOT> ;
+    dcterms:contributor <org/Zazuko> ;
+    dcterms:issued "%%DATEISSUED%%"^^xsd:date; # date of publication of the source
+    dcterms:created "%%DATECREATED%%"^^xsd:dateTime;
+#    dcterms:modified "%%DATEMODIFIED%%"^^xsd:date;
+    void:sparqlEndpoint <http://lod.opentransportdata.swiss/query>;
+#    duv:hasUsage <dataset/meta-usage> ;
+.
