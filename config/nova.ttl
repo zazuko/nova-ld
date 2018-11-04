@@ -35,28 +35,28 @@
   ] ;
   
   rr:predicateObjectMap [
-    rr:predicate nova:partnerCode;
+    rr:predicate ex:partnerCode;
     rr:objectMap [
       rml:reference "partnerCode";
     ]
  ] ;
   
   rr:predicateObjectMap [
-    rr:predicate nova:partnerKuerzel;
+    rr:predicate ex:partnerKuerzel;
     rr:objectMap [
       rml:reference "partnerKuerzel";
     ]
  ] ;
  
  rr:predicateObjectMap [
-    rr:predicate dc:identifier;
+    rr:predicate ex:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
  ] ;
   
   rr:predicateObjectMap [
-    rr:predicate rdfs:label;
+    rr:predicate ex:label;
     rr:objectMap [
       rml:reference "druckBezeichnung/de";
     ]
@@ -77,7 +77,7 @@
 
   rr:subjectMap [
     rr:template "http://lod.opentransportdata.swiss/nova/kante/{@id}" ;
-    rr:class nova:Kante ;
+    rr:class ex:Kante ;
     rr:termType rr:IRI ;
   ] ;
 
@@ -90,7 +90,7 @@
  ];
 
  rr:predicateObjectMap [
-    rr:predicate dc:identifier;
+    rr:predicate ex:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
@@ -112,19 +112,19 @@
 
   rr:subjectMap [
     rr:template "http://lod.opentransportdata.swiss/nova/kante/version/{@id}" ;
-    rr:class nova:KanteVersion ;
+    rr:class ex:KanteVersion ;
     rr:termType rr:IRI ;
   ] ;
 
  rr:predicateObjectMap [
-    rr:predicate dc:identifier;
+    rr:predicate ex:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate schema:validThrough;
+    rr:predicate ex:validThrough;
     rr:objectMap [
       rml:reference "@gueltigBis";
       rr:datatype xsd:date ;
@@ -132,7 +132,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate schema:validFrom;
+    rr:predicate ex:validFrom;
     rr:objectMap [
       rml:reference "@gueltigVon";
       rr:datatype xsd:date ;
@@ -140,23 +140,23 @@
  ] ;  
 
   rr:predicateObjectMap [
-    rr:predicate ex:nodeFrom;
+    rr:predicate ex:haltestelle1;
     rr:objectMap [
-      rr:template "http://lod.opentransportdata.swiss/nova/stop/{haltestelle1}";
+      rr:template "http://lod.opentransportdata.swiss/nova/haltestelle/{haltestelle1}";
       rr:termType rr:IRI ;
     ]
  ] ;
 
    rr:predicateObjectMap [
-    rr:predicate ex:nodeTo;
+    rr:predicate ex:haltestelle2;
     rr:objectMap [
-      rr:template "http://lod.opentransportdata.swiss/nova/stop/{haltestelle2}";
+      rr:template "http://lod.opentransportdata.swiss/nova/haltestelle/{haltestelle2}";
       rr:termType rr:IRI ; 
     ]
  ] ;
  
     rr:predicateObjectMap [
-    rr:predicate nova:verwaltung;
+    rr:predicate ex:verwaltung;
     rr:objectMap [
       rr:template "http://lod.opentransportdata.swiss/nova/verwaltung/{verwaltung}";
       rr:termType rr:IRI ; 
@@ -164,14 +164,14 @@
  ] ;
 
     rr:predicateObjectMap [
-    rr:predicate nova:verkehrsmittelTyp;
+    rr:predicate ex:verkehrsmittelTyp;
     rr:objectMap [
       rml:reference "verkehrsmittelTyp";
     ]
  ] ;
 
     rr:predicateObjectMap [
-    rr:predicate nova:zuschlagspflichtig;
+    rr:predicate ex:zuschlagspflichtig;
     rr:objectMap [
       rml:reference "zuschlagspflichtig";
       rr:datatype xsd:boolean ;
@@ -179,7 +179,7 @@
  ] ;
 
     rr:predicateObjectMap [
-    rr:predicate nova:bahnersatz;
+    rr:predicate ex:bahnersatz;
     rr:objectMap [
       rml:reference "bahnersatz";
       rr:datatype xsd:boolean ;
@@ -201,7 +201,7 @@
 
   rr:subjectMap [
     rr:template "http://lod.opentransportdata.swiss/nova/zone/{@id}" ;
-    rr:class nova:Zone ;
+    rr:class ex:Zone ;
     rr:termType rr:IRI ;
   ] ;
   
@@ -227,12 +227,12 @@
 
   rr:subjectMap [
     rr:template "http://lod.opentransportdata.swiss/nova/zonenplan/{@id}" ;
-    rr:class nova:Zonenplan ;
+    rr:class ex:Zonenplan ;
     rr:termType rr:IRI ;
   ] ;
   
  rr:predicateObjectMap [
-    rr:predicate dc:identifier;
+    rr:predicate ex:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
@@ -286,14 +286,14 @@
   ] ;
 
  rr:predicateObjectMap [
-    rr:predicate dc:identifier;
+    rr:predicate ex:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate schema:validThrough;
+    rr:predicate ex:validThrough;
     rr:objectMap [
       rml:reference "@gueltigBis";
       rr:datatype xsd:date ;
@@ -301,7 +301,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate schema:validFrom;
+    rr:predicate ex:validFrom;
     rr:objectMap [
       rml:reference "@gueltigVon";
       rr:datatype xsd:date ;
@@ -332,7 +332,7 @@
   ] ;
 
   rr:subjectMap [
-    rr:template "http://lod.opentransportdata.swiss/nova/stop/{@id}" ;
+    rr:template "http://lod.opentransportdata.swiss/nova/haltestelle/{@id}" ;
     rr:class ex:Haltestelle ;
     rr:termType rr:IRI ;
   ] ;
@@ -340,7 +340,7 @@
   rr:predicateObjectMap [
     rr:predicate ex:version;
     rr:objectMap [
-      carml:multiTemplate "http://lod.opentransportdata.swiss/nova/stop/version/{./version/@id}";
+      carml:multiTemplate "http://lod.opentransportdata.swiss/nova/haltestelle/version/{./version/@id}";
       rr:termType rr:IRI ;
     ];
  ];
@@ -360,20 +360,20 @@
   ] ;
 
   rr:subjectMap [
-    rr:template "http://lod.opentransportdata.swiss/nova/stop/version/{@id}" ;
-    rr:class gtfs:Stop ;
+    rr:template "http://lod.opentransportdata.swiss/nova/haltestelle/version/{@id}" ;
+    rr:class ex:Haltestelle ;
     rr:termType rr:IRI ;
   ] ;
 
  rr:predicateObjectMap [
-    rr:predicate dc:identifier;
+    rr:predicate ex:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate schema:validThrough;
+    rr:predicate ex:validThrough;
     rr:objectMap [
       rml:reference "@gueltigBis";
       rr:datatype xsd:date ;
@@ -381,7 +381,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate schema:validFrom;
+    rr:predicate ex:validFrom;
     rr:objectMap [
       rml:reference "@gueltigVon";
       rr:datatype xsd:date ;
@@ -395,8 +395,15 @@
     ]
  ] ;
 
+ rr:predicateObjectMap [
+    rr:predicate ex:bavName;
+    rr:objectMap [
+      rml:reference "bavName";
+    ]
+ ] ;
+
   rr:predicateObjectMap [
-    rr:predicate owl:sameAs;
+    rr:predicate ex:sameAs;
     rr:objectMap [
       rr:template "http://lod.opentransportdata.swiss/didok/{uic}";
       rr:termType rr:IRI
@@ -447,12 +454,13 @@
 
   rr:subjectMap [
     rr:template "http://lod.opentransportdata.swiss/nova/betreiber/version/{@id}" ;
-    rr:class ex:BetreiberVersion ;
+    rr:class nova:Operator ;
     rr:termType rr:IRI ;
   ] ;
 
+  # TODO should probably be deleted as it's not a public ID
  rr:predicateObjectMap [
-    rr:predicate dc:identifier;
+    rr:predicate schema:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
@@ -476,7 +484,7 @@
 
   # TODO den name scheint es gar nicht mehr zu geben im File?
   rr:predicateObjectMap [
-    rr:predicate ex:name ;
+    rr:predicate schema:name ;
     rr:objectMap [
       rr:template "http://lod.opentransportdata.swiss/nova/name/{name}" ;
       rr:termType rr:IRI
@@ -484,6 +492,119 @@
  ] ;
 
   .
+
+# rtmRelation: Looks like the non-versioned ID is never used so we only care about the version
+<#RtmRelationVersion> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source [
+      a carml:Stream ;
+	    carml:declaresNamespace [
+        carml:namespacePrefix "ns2" ;
+        carml:namespaceName "ch.voev.nova.pflege.common.exporter.datenrelease" ;
+      ] ;
+    ] ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/ns2:datenrelease/subsystemDVModell/rtmRelationen/rtmRelation/version" ;
+  ] ;
+
+  rr:subjectMap [
+    rr:template "http://lod.opentransportdata.swiss/nova/betreiber/version/{@id}" ;
+    rr:class ex:RtmRelationVersion ;
+    rr:termType rr:IRI ;
+  ] ;
+
+ rr:predicateObjectMap [
+    rr:predicate ex:identifier;
+    rr:objectMap [
+      rml:reference "@id";
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:validThrough;
+    rr:objectMap [
+      rml:reference "@gueltigBis";
+      rr:datatype xsd:date ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:validFrom;
+    rr:objectMap [
+      rml:reference "@gueltigVon";
+      rr:datatype xsd:date ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:haltestelle1;
+    rr:objectMap [
+      rr:template "http://lod.opentransportdata.swiss/nova/haltestelle/{haltestelle1}";
+      rr:termType rr:IRI ;
+    ]
+ ] ;
+
+   rr:predicateObjectMap [
+    rr:predicate ex:haltestelle2;
+    rr:objectMap [
+      rr:template "http://lod.opentransportdata.swiss/nova/haltestelle/{haltestelle2}";
+      rr:termType rr:IRI ; 
+    ]
+ ] ;
+
+   rr:predicateObjectMap [
+    rr:predicate ex:relationsgebiet;
+    rr:objectMap [
+      rr:template "http://lod.opentransportdata.swiss/nova/relationsgebiet/{relationsgebiet}";
+      rr:termType rr:IRI ; 
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:priority;
+    rr:objectMap [
+      rml:reference "priority";
+      rr:datatype xsd:int ;
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:tarifwertAbo;
+    rr:objectMap [
+      rml:reference "tarifwertAbo";
+      rr:datatype xsd:double ;
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:tarifwertEinzel;
+    rr:objectMap [
+      rml:reference "tarifwertEinzel";
+      rr:datatype xsd:double ;
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:effektiveKilometer;
+    rr:objectMap [
+      rml:reference "effektiveKilometer";
+      rr:datatype xsd:double ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate ex:klassenSpanne;
+    rr:objectMap [
+      rml:reference "klassenSpanne";
+      rr:datatype xsd:double ;
+    ]
+  ] ;
+
+.
+
+# next
+# relationsgebiet bsp: ids__6195854
+
 
 # Fehlt:
 # Commons -> sieht nach Kategorien aus
