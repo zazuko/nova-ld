@@ -1,0 +1,32 @@
+BASE <http://lod.opentransportdata.swiss/nova/>
+PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
+PREFIX carml: <http://carml.taxonic.com/carml/>
+PREFIX nova: <http://lod.opentransportdata.swiss/schema/>
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ex: <http://example.org/>
+PREFIX gtfs: <http://vocab.gtfs.org/terms#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT *
+FROM <http://example.org/inference>
+#FROM <http://example.org/nova>
+WHERE {
+    ?s a nova:Rate ;
+#        nova:uic <http://lod.opentransportdata.swiss/didok/8501008> ;
+#        nova:uic <http://lod.opentransportdata.swiss/didok/8501026> ;
+        nova:uic <http://lod.opentransportdata.swiss/didok/8501120> ;
+        nova:uic <http://lod.opentransportdata.swiss/didok/8501008> ;
+        nova:rateValueSingle ?tarifwertEinzel ;
+        nova:effectiveKilometer ?effektiveKilometer ;
+        schema:validFrom ?from ;
+        schema:validThrough ?through .
+
+}# LIMIT 10
