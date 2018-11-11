@@ -15,7 +15,7 @@ PREFIX ex: <http://example.org/>
 PREFIX gtfs: <http://vocab.gtfs.org/terms#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-CONSTRUCT {
+INSERT { GRAPH <http://example.org/inference> {
     ?hop a nova:Hop ;
         schema:validFrom ?validFrom ;
         schema:validThrough ?validThrough ;
@@ -25,8 +25,8 @@ CONSTRUCT {
         nova:uic ?didok2 ;
         nova:operator ?verwaltung .
 
-}
-FROM <http://example.com/nova> WHERE {
+}}
+WHERE { GRAPH <http://example.org/nova> {
     ?hop a ex:KanteVersion ;
         ex:validFrom ?validFrom ;
         ex:validThrough ?validThrough ;
@@ -39,4 +39,4 @@ FROM <http://example.com/nova> WHERE {
         # TODO:
         # - verkehrsmittelTyp, eventuell aus GTFS Vocab
 
-} LIMIT 10
+}}
