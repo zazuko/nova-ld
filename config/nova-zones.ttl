@@ -1,0 +1,82 @@
+@base <http://lod.opentransportdata.swiss/nova/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix carml: <http://carml.taxonic.com/carml/> .
+@prefix nova: <http://lod.opentransportdata.swiss/schema/> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/> .
+@prefix gtfs: <http://vocab.gtfs.org/terms#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Stuff for price calculation mapping to currencies
+<#Zonenplan> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source [
+      a carml:Stream ;
+	    carml:declaresNamespace [
+        carml:namespacePrefix "ns2" ;
+        carml:namespaceName "ch.voev.nova.pflege.common.exporter.datenrelease" ;
+      ] ;
+    ] ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/ns2:datenrelease/subsystemZonenModell/zonenplaene/zonenplan/version" ;
+  ] ;
+
+  rr:subjectMap [
+    rr:template "http://lod.opentransportdata.swiss/nova/zonenplan/version/{@id}" ;
+    rr:class ex:Zonenplan ;
+    rr:termType rr:IRI ;
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:identifier;
+    rr:objectMap [
+      rml:reference "@id";
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:validThrough;
+    rr:objectMap [
+      rml:reference "@gueltigBis";
+      rr:datatype xsd:date ;
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:validFrom;
+    rr:objectMap [
+      rml:reference "@gueltigVon";
+      rr:datatype xsd:date ;
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:bezeichnung;
+    rr:objectMap [
+      rml:reference "bezeichnung";
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:prioritaet;
+    rr:objectMap [
+      rml:reference "prioritaet";
+      rr:datatype xsd:int ;
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:zonen;
+    rr:objectMap [
+      rml:reference "zonen";
+    ]
+  ] ;   
+.
