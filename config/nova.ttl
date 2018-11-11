@@ -508,7 +508,7 @@
   ] ;
 
   rr:subjectMap [
-    rr:template "http://lod.opentransportdata.swiss/nova/betreiber/version/{@id}" ;
+    rr:template "http://lod.opentransportdata.swiss/nova/rtmrelation/version/{@id}" ;
     rr:class ex:RtmRelationVersion ;
     rr:termType rr:IRI ;
   ] ;
@@ -572,7 +572,7 @@
     rr:predicate ex:tarifwertAbo;
     rr:objectMap [
       rml:reference "tarifwertAbo";
-      rr:datatype xsd:double ;
+      rr:datatype xsd:int ;
     ]
   ] ;
 
@@ -580,7 +580,7 @@
     rr:predicate ex:tarifwertEinzel;
     rr:objectMap [
       rml:reference "tarifwertEinzel";
-      rr:datatype xsd:double ;
+      rr:datatype xsd:int ;
     ]
   ] ;
 
@@ -588,7 +588,7 @@
     rr:predicate ex:effektiveKilometer;
     rr:objectMap [
       rml:reference "effektiveKilometer";
-      rr:datatype xsd:double ;
+      rr:datatype xsd:int ;
     ]
   ] ;
 
