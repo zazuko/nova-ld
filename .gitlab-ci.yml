@@ -14,7 +14,7 @@ stages:
 build_all_job:
   stage: build
   tags:
-    - large
+    - ssz
   script:
     - npm run build
   artifacts:
