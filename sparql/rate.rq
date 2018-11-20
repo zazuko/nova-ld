@@ -1,4 +1,4 @@
-BASE <http://lod.opentransportdata.swiss/nova/>
+BASE <https://lod.opentransportdata.swiss/nova/>
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
 PREFIX ql: <http://semweb.mmlab.be/ns/ql#>

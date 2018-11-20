@@ -1,4 +1,4 @@
-@base <http://lod.opentransportdata.swiss/nova/> .
+@base <https://lod.opentransportdata.swiss/nova/> .
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
@@ -30,7 +30,7 @@
   ] ;
 
   rr:subjectMap [
-    rr:template "http://lod.opentransportdata.swiss/nova/rtmPreisTabelle/version/{@id}" ;
+    rr:template "https://lod.opentransportdata.swiss/nova/rtmPreisTabelle/version/{@id}" ;
     rr:class ex:RtmPreisTabelleVersion ;
     rr:termType rr:IRI ;
   ] ;
@@ -68,7 +68,7 @@
   rr:predicateObjectMap [
     rr:predicate ex:preisstufe;
     rr:objectMap [
-      carml:multiTemplate "http://lod.opentransportdata.swiss/nova/preisstufe/{./preisstufe/@id}";
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/preisstufe/{./preisstufe/@id}";
       rr:termType rr:IRI ;
     ]
   ] .
@@ -87,7 +87,7 @@
   ] ;
 
   rr:subjectMap [
-    rr:template "http://lod.opentransportdata.swiss/nova/preisstufe/{@id}" ;
+    rr:template "https://lod.opentransportdata.swiss/nova/preisstufe/{@id}" ;
     rr:class ex:Preisstufe ;
     rr:termType rr:IRI ;
   ] ;
@@ -118,7 +118,7 @@
   rr:predicateObjectMap [
     rr:predicate ex:auspraegung;
     rr:objectMap [
-      carml:multiTemplate "http://lod.opentransportdata.swiss/nova/auspraegung/{./auspraegung/@id}";
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/auspraegung/{./auspraegung/@id}";
       rr:termType rr:IRI ;
     ]
   ] ;
@@ -138,7 +138,7 @@
   ] ;
 
   rr:subjectMap [
-    rr:template "http://lod.opentransportdata.swiss/nova/auspraegung/{@id}" ;
+    rr:template "https://lod.opentransportdata.swiss/nova/auspraegung/{@id}" ;
     rr:class ex:Auspraegung ;
     rr:termType rr:IRI ;
   ] ;

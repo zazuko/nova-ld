@@ -1,4 +1,4 @@
-@base <http://lod.opentransportdata.swiss/nova/> .
+@base <https://lod.opentransportdata.swiss/nova/> .
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
@@ -30,7 +30,7 @@
   ] ;
 
   rr:subjectMap [
-    rr:template "http://lod.opentransportdata.swiss/nova/rtmrelation/version/{@id}" ;
+    rr:template "https://lod.opentransportdata.swiss/nova/rtmrelation/version/{@id}" ;
     rr:class ex:RtmRelationVersion ;
     rr:termType rr:IRI ;
   ] ;
@@ -61,7 +61,7 @@
   rr:predicateObjectMap [
     rr:predicate ex:haltestelle1;
     rr:objectMap [
-      rr:template "http://lod.opentransportdata.swiss/nova/haltestelle/{haltestelle1}";
+      rr:template "https://lod.opentransportdata.swiss/nova/haltestelle/{haltestelle1}";
       rr:termType rr:IRI ;
     ]
  ] ;
@@ -69,7 +69,7 @@
    rr:predicateObjectMap [
     rr:predicate ex:haltestelle2;
     rr:objectMap [
-      rr:template "http://lod.opentransportdata.swiss/nova/haltestelle/{haltestelle2}";
+      rr:template "https://lod.opentransportdata.swiss/nova/haltestelle/{haltestelle2}";
       rr:termType rr:IRI ; 
     ]
  ] ;
@@ -77,7 +77,7 @@
    rr:predicateObjectMap [
     rr:predicate ex:relationsgebiet;
     rr:objectMap [
-      rr:template "http://lod.opentransportdata.swiss/nova/relationsgebiet/{relationsgebiet}";
+      rr:template "https://lod.opentransportdata.swiss/nova/relationsgebiet/{relationsgebiet}";
       rr:termType rr:IRI ; 
     ]
  ] ;
