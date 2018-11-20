@@ -12,23 +12,26 @@
     "barnard59": "git+https://github.com/zazuko/barnard59.git#master",
     "ftp": "^0.3.10",
     "json": "^9.0.6",
-    "npm-run-all": "^4.1.2"
+    "npm-run-all": "^4.1.3"
   },
   "devDependencies": {},
   "scripts": {
     "clean": "rm -rf target/*",
-    "fetch-nova": "node scripts/ftp-nova.js",
+    "fetch-nova": "node scripts/ftp-nova.js && unzip -d tmp -o tmp/nova.zip novaan.xml",
     "fetch-carml": "mkdir -p tmp/lib && curl -L https://github.com/netage/carml-cli/releases/download/cli-0.0.6/cli-0.0.6-SNAPSHOT-jar-with-dependencies.jar -o tmp/lib/carml-cli.jar",
-    "convert-nova": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/datenrelease_96.20180920-2201.P.P.4596.0.xml -m config/nova.ttl -of nt -o target/nova.nt",
-    "convert-pricing": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/datenrelease_96.20180920-2201.P.P.4596.0.xml -m config/nova-pricing.ttl -of nt -o target/nova-pricing.nt",
-    "convert-debug": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/datenrelease_96.20180920-2201.P.P.4596.0.xml -m config/nova-debug.ttl -of nt -o target/nova-debug.nt",
-    "convert-zones": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/datenrelease_96.20180920-2201.P.P.4596.0.xml -m config/nova-zones.ttl -of nt -o target/nova-zones.nt",
-    "tdb-load": "tdbloader --loc=target/tdb --graph=http://example.org/nova input/schema.ttl target/void.ttl target/nova.nt target/nova-pricing.nt target/nova-zones.nt",
+    "convert-base": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/novaan.xml -m config/nova-base.ttl -of nt -o target/nova-base.nt",
+    "convert-rtm": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/novaan.xml -m config/nova-rtm.ttl -of nt -o target/nova-rtm.nt",
+    "convert-pricing": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/novaan.xml -m config/nova-pricing.ttl -of nt -o target/nova-pricing.nt",
+    "convert-debug": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/novaan.xml -m config/nova-debug.ttl -of nt -o target/nova-debug.nt",
+    "convert-zones": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/novaan.xml -m config/nova-zones.ttl -of nt -o target/nova-zones.nt",
+    "tdb-load": "tdbloader --loc=target/tdb --graph=http://example.org/nova input/schema.ttl target/void.ttl target/nova-base.nt target/nova-rtm.nt target/nova-pricing.nt target/nova-zones.nt",
     "tdb-query": "./scripts/tdb-query.sh",
     "tdb-dump": "./scripts/tdb-dump.sh",
     "validate-riot": "riot --validate target/everything.nt.gz",
     "void-timestamp": "./scripts/void-timestamp.sh",
     "didok-integ-s3": "ENDPOINT=http://data.zazuko.com/lindas STORE_USER=$STORE_USER_INTEG STORE_PASSWORD=$STORE_PASSWORD_INTEG ./scripts/store-s3.sh",
-    "didok-prod-s3": "ENDPOINT=https://lindas-data.ch:8443/lindas STORE_USER=$STORE_USER_PROD STORE_PASSWORD=$STORE_PASSWORD_PROD ./scripts/store-s3.sh"
+    "didok-prod-s3": "ENDPOINT=https://lindas-data.ch:8443/lindas STORE_USER=$STORE_USER_PROD STORE_PASSWORD=$STORE_PASSWORD_PROD ./scripts/store-s3.sh",
+    "build": "npm-run-all clean fetch-nova fetch-carml convert-nova convert-pricing convert-zones void-timestamp tdb-load tdb-query tdb-dump validate-riot",
+    "build-local": "npm-run-all clean convert-base convert-rtm convert-pricing convert-zones void-timestamp tdb-load tdb-query tdb-dump validate-riot "
   }
 }
