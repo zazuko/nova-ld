@@ -13,6 +13,8 @@ stages:
 
 build_all_job:
   stage: build
+  tags:
+    - medium
   script:
     - npm run build
   artifacts:
