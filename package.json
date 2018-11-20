@@ -18,7 +18,7 @@
   "scripts": {
     "clean": "rm -rf target/*",
     "fetch-nova": "node scripts/ftp-nova.js && unzip -d tmp -o tmp/nova.zip novaan.xml",
-    "fetch-carml": "mkdir -p tmp/lib && curl -L https://github.com/netage/carml-cli/releases/download/cli-0.0.6/cli-0.0.6-SNAPSHOT-jar-with-dependencies.jar -o tmp/lib/carml-cli.jar",
+    "fetch-carml": "mkdir -p tmp/lib && curl -s -L https://github.com/netage/carml-cli/releases/download/cli-0.0.6/cli-0.0.6-SNAPSHOT-jar-with-dependencies.jar -o tmp/lib/carml-cli.jar",
     "convert-base": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/novaan.xml -m config/nova-base.ttl -of nt -o target/nova-base.nt",
     "convert-rtm": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/novaan.xml -m config/nova-rtm.ttl -of nt -o target/nova-rtm.nt",
     "convert-pricing": "JVM_ARGS=-Xmx4G mkdir -p target && java -jar tmp/lib/carml-cli.jar -i tmp/novaan.xml -m config/nova-pricing.ttl -of nt -o target/nova-pricing.nt",
