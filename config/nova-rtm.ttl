@@ -160,7 +160,44 @@
   rr:predicateObjectMap [
     rr:predicate ex:relationenTarife;
     rr:objectMap [
-      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/relationenTarif/version/{tokenize(relationenTarife, ' ')}";
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/relationenTarif/{tokenize(relationenTarife, ' ')}";
+      rr:termType rr:IRI ;
+    ]
+  ] .
+
+
+# We need it as the referenced ID is the unversioned one
+
+ <#RelationenTarif> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source [
+      a carml:Stream ;
+	    carml:declaresNamespace [
+        carml:namespacePrefix "ns2" ;
+        carml:namespaceName "ch.voev.nova.pflege.common.exporter.datenrelease" ;
+      ] ;
+    ] ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/ns2:datenrelease/subsystemDVModell/relationenTarife/relationenTarif" ;
+  ] ;
+
+  rr:subjectMap [
+    rr:template "https://lod.opentransportdata.swiss/nova/relationenTarif/{@id}" ;
+    rr:class ex:RelationenTarif ;
+    rr:termType rr:IRI ;
+  ] ;
+
+ rr:predicateObjectMap [
+    rr:predicate ex:identifier;
+    rr:objectMap [
+      rml:reference "@id";
+    ]
+ ] ;
+
+   rr:predicateObjectMap [
+    rr:predicate ex:relationenTarifeVersion;
+    rr:objectMap [
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/relationenTarif/version/{./version/@id}";
       rr:termType rr:IRI ;
     ]
   ] .
