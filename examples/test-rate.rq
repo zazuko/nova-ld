@@ -24,7 +24,7 @@ WHERE {
 #        nova:uic <http://lod.opentransportdata.swiss/didok/8501026> ;
         nova:uic <http://lod.opentransportdata.swiss/didok/8501120> ;
         nova:uic <http://lod.opentransportdata.swiss/didok/8501008> ;
-        nova:rateValueSingle ?tarifwertEinzel ;
+        nova:rateValue ?tarifwert ;
         nova:effectiveKilometer ?effektiveKilometer ;
         schema:validFrom ?from ;
         schema:validThrough ?through .

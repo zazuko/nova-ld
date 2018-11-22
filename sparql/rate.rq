@@ -22,8 +22,8 @@ INSERT { GRAPH <http://example.org/inference> {
         schema:validThrough ?validThrough ;
         nova:uic ?didok1 ;
         nova:uic ?didok2 ;
-        nova:rateValueSingle ?tarifwertEinzel ;
-        nova:effectiveKilometer ?effektiveKilometer .
+        nova:rateValue ?tarifwert ;
+        nova:effectiveKilometer ?effectiveKilometer .
 
 }}
 WHERE { GRAPH <http://example.org/nova> {
@@ -32,10 +32,15 @@ WHERE { GRAPH <http://example.org/nova> {
         ex:validThrough ?validThrough ;
         ex:haltestelle1/ex:version/ex:sameAs ?didok1 ;
         ex:haltestelle2/ex:version/ex:sameAs ?didok2 ;
-        ex:tarifwertEinzel ?tarifwertEinzel ;
-        ex:effektiveKilometer ?effektiveKilometer .
+        ex:effektiveKilometer ?effectiveKilometer ;
+        ex:tarifWerte ?tarifWerte .
+        #ex:effektiveKilometer ?effektiveKilometer .
 
-        # TODO:
-        # - verkehrsmittelTyp, eventuell aus GTFS Vocab
+        ?tarifWerte ex:tarifwert ?tarifwert ;
+            ex:relationenTarife/ex:relationenTarifeVersion ?relationenTarife .
+
+        ?relationenTarife ex:preisstufe ?preisstufe .
+
+      #  ?preisstufe schema:offer ?offer .
 
 }}
