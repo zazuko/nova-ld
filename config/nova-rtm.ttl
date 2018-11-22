@@ -99,10 +99,10 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:tarifwertEinzel;
+    rr:predicate ex:tarifWerte;
     rr:objectMap [
-      rml:reference "tarifwertEinzel";
-      rr:datatype xsd:int ;
+      rr:template "https://lod.opentransportdata.swiss/nova/tarifwert/{tarifWerte}";
+      rr:termType rr:IRI ; 
     ]
   ] ;
 
@@ -122,4 +122,220 @@
     ]
   ] ;
 
+.
+
+<#Tarifwert> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source [
+      a carml:Stream ;
+	    carml:declaresNamespace [
+        carml:namespacePrefix "ns2" ;
+        carml:namespaceName "ch.voev.nova.pflege.common.exporter.datenrelease" ;
+      ] ;
+    ] ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/ns2:datenrelease/subsystemDVModell/tarifwerte/tarifwert" ;
+  ] ;
+
+  rr:subjectMap [
+    rr:template "https://lod.opentransportdata.swiss/nova/tarifwert/{@id}" ;
+    rr:class ex:Tarifwert ;
+    rr:termType rr:IRI ;
+  ] ;
+
+ rr:predicateObjectMap [
+    rr:predicate ex:identifier;
+    rr:objectMap [
+      rml:reference "@id";
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:tarifwert;
+    rr:objectMap [
+      rml:reference "tarifwert";
+    ]
+ ] ;
+
+  # AAARGH why is this not a proper key, WTF...
+  rr:predicateObjectMap [
+    rr:predicate ex:relationenTarife;
+    rr:objectMap [
+      rml:reference "relationenTarife";
+    ]
+ ] .
+
+ <#RelationenTarifVersion> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source [
+      a carml:Stream ;
+	    carml:declaresNamespace [
+        carml:namespacePrefix "ns2" ;
+        carml:namespaceName "ch.voev.nova.pflege.common.exporter.datenrelease" ;
+      ] ;
+    ] ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/ns2:datenrelease/subsystemDVModell/relationenTarife/relationenTarif/version" ;
+  ] ;
+
+  rr:subjectMap [
+    rr:template "https://lod.opentransportdata.swiss/nova/relationenTarif/version/{@id}" ;
+    rr:class ex:RelationenTarifVersion ;
+    rr:termType rr:IRI ;
+  ] ;
+
+ rr:predicateObjectMap [
+    rr:predicate ex:identifier;
+    rr:objectMap [
+      rml:reference "@id";
+    ]
+ ] ;
+
+   rr:predicateObjectMap [
+    rr:predicate ex:validThrough;
+    rr:objectMap [
+      rml:reference "@gueltigBis";
+      rr:datatype xsd:date ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:validFrom;
+    rr:objectMap [
+      rml:reference "@gueltigVon";
+      rr:datatype xsd:date ;
+    ]
+ ] ;
+
+  # TODO points nowhere for the moment
+  rr:predicateObjectMap [
+    rr:predicate ex:tarif;
+    rr:objectMap [
+      rr:template "https://lod.opentransportdata.swiss/nova/tarif/{tarif}";
+      rr:termType rr:IRI ; 
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:preisstufe;
+    rr:objectMap [
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/sockelpreise/{./sockelPreise/@id}";
+      rr:termType rr:IRI ;
+    ]
+  ] .
+
+
+<#SockelPreise> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source [
+      a carml:Stream ;
+	    carml:declaresNamespace [
+        carml:namespacePrefix "ns2" ;
+        carml:namespaceName "ch.voev.nova.pflege.common.exporter.datenrelease" ;
+      ] ;
+    ] ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/ns2:datenrelease/subsystemDVModell/relationenTarife/relationenTarif/version/sockelPreise" ;
+  ] ;
+
+  rr:subjectMap [
+    rr:template "https://lod.opentransportdata.swiss/nova/relationenTarif/version/sockelPreise/{@id}" ;
+    rr:class ex:SockelPreise ;
+    rr:termType rr:IRI ;
+  ] ;
+
+ rr:predicateObjectMap [
+    rr:predicate ex:identifier;
+    rr:objectMap [
+      rml:reference "@id";
+    ]
+ ] ;
+
+   rr:predicateObjectMap [
+    rr:predicate ex:validThrough;
+    rr:objectMap [
+      rml:reference "@gueltigBis";
+      rr:datatype xsd:date ;
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate ex:validFrom;
+    rr:objectMap [
+      rml:reference "@gueltigVon";
+      rr:datatype xsd:date ;
+    ]
+ ] ;
+
+  # points to the currency, I think this is the only way to make sure this is making sense in the end
+  rr:predicateObjectMap [
+    rr:predicate ex:id;
+    rr:objectMap [
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/sockelpreise/{./sockelPreise/@id}/{./preis/waehrung}";
+      rr:termType rr:IRI ;
+    ]
+  ] ;
+
+  # TODO points nowhere for the moment
+  rr:predicateObjectMap [
+    rr:predicate ex:fahrart;
+    rr:objectMap [
+      rr:template "https://lod.opentransportdata.swiss/nova/fahrart/{fahrart}";
+      rr:termType rr:IRI ; 
+    ]
+  ] ;
+
+  # TODO points nowhere for the moment
+  rr:predicateObjectMap [
+    rr:predicate ex:klasse;
+    rr:objectMap [
+      rr:template "https://lod.opentransportdata.swiss/nova/klasse/{klasse}";
+      rr:termType rr:IRI ; 
+    ]
+  ] ;
+
+  # TODO points nowhere for the moment
+  rr:predicateObjectMap [
+    rr:predicate ex:kundensegmente;
+    rr:objectMap [
+      rr:template "https://lod.opentransportdata.swiss/nova/kundensegment/{kundensegmente}";
+      rr:termType rr:IRI ; 
+    ]
+  ] ;
+.
+
+# Should be all fine, schema:PriceSpecification
+<#Preis> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source [
+      a carml:Stream ;
+	    carml:declaresNamespace [
+        carml:namespacePrefix "ns2" ;
+        carml:namespaceName "ch.voev.nova.pflege.common.exporter.datenrelease" ;
+      ] ;
+    ] ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/ns2:datenrelease/subsystemDVModell/relationenTarife/relationenTarif/version/sockelPreise" ;
+  ] ;
+
+  rr:subjectMap [
+    rr:template "https://lod.opentransportdata.swiss/nova/relationenTarif/version/sockelPreise/{@id}/{./preis/waehrung}" ;
+    rr:class schema:PriceSpecification ;
+    rr:termType rr:IRI ;
+  ] ;
+
+ rr:predicateObjectMap [
+    rr:predicate schema:priceCurrency;
+    rr:objectMap [
+      rml:reference "./preis/waehrung";
+    ]
+ ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate schema:price;
+    rr:objectMap [
+      rml:reference "./preis/betrag";
+      rr:datatype xsd:double ;
+    ]
+ ] ;
 .
