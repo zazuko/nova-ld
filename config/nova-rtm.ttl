@@ -165,6 +165,7 @@
     ]
   ] .
 
+# Beside Tarif this only seems to be useful for validity. And I don't get what tarif is used for
  <#RelationenTarifVersion> a rr:TriplesMap ;
   rml:logicalSource [
     rml:source [
@@ -225,6 +226,7 @@
   ] .
 
 
+# Probably a schema:Trip or schema:Service
 <#SockelPreise> a rr:TriplesMap ;
   rml:logicalSource [
     rml:source [
@@ -240,7 +242,7 @@
 
   rr:subjectMap [
     rr:template "https://lod.opentransportdata.swiss/nova/relationenTarif/version/sockelPreise/{@id}" ;
-    rr:class ex:SockelPreise ;
+    rr:class schema:Service ;
     rr:termType rr:IRI ;
   ] ;
 
@@ -251,25 +253,9 @@
     ]
  ] ;
 
-   rr:predicateObjectMap [
-    rr:predicate ex:validThrough;
-    rr:objectMap [
-      rml:reference "@gueltigBis";
-      rr:datatype xsd:date ;
-    ]
- ] ;
-
-  rr:predicateObjectMap [
-    rr:predicate ex:validFrom;
-    rr:objectMap [
-      rml:reference "@gueltigVon";
-      rr:datatype xsd:date ;
-    ]
- ] ;
-
   # points to the currency, I think this is the only way to make sure this is making sense in the end
   rr:predicateObjectMap [
-    rr:predicate ex:id;
+    rr:predicate schema:offers;
     rr:objectMap [
       carml:multiTemplate "https://lod.opentransportdata.swiss/nova/sockelpreise/{./sockelPreise/@id}/{./preis/waehrung}";
       rr:termType rr:IRI ;
@@ -278,7 +264,7 @@
 
   # TODO points nowhere for the moment
   rr:predicateObjectMap [
-    rr:predicate ex:fahrart;
+    rr:predicate nova:tripType;
     rr:objectMap [
       rr:template "https://lod.opentransportdata.swiss/nova/fahrart/{fahrart}";
       rr:termType rr:IRI ; 
@@ -287,7 +273,7 @@
 
   # TODO points nowhere for the moment
   rr:predicateObjectMap [
-    rr:predicate ex:klasse;
+    rr:predicate nova:seating;
     rr:objectMap [
       rr:template "https://lod.opentransportdata.swiss/nova/klasse/{klasse}";
       rr:termType rr:IRI ; 
@@ -296,7 +282,7 @@
 
   # TODO points nowhere for the moment
   rr:predicateObjectMap [
-    rr:predicate ex:kundensegmente;
+    rr:predicate nova:customerSegment;
     rr:objectMap [
       rr:template "https://lod.opentransportdata.swiss/nova/kundensegment/{kundensegmente}";
       rr:termType rr:IRI ; 
@@ -320,7 +306,7 @@
 
   rr:subjectMap [
     rr:template "https://lod.opentransportdata.swiss/nova/relationenTarif/version/sockelPreise/{@id}/{./preis/waehrung}" ;
-    rr:class schema:PriceSpecification ;
+    rr:class schema:Offer ;
     rr:termType rr:IRI ;
   ] ;
 
