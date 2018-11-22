@@ -143,7 +143,7 @@
     rr:termType rr:IRI ;
   ] ;
 
- rr:predicateObjectMap [
+  rr:predicateObjectMap [
     rr:predicate ex:identifier;
     rr:objectMap [
       rml:reference "@id";
@@ -157,13 +157,13 @@
     ]
  ] ;
 
-  # AAARGH why is this not a proper key, WTF...
   rr:predicateObjectMap [
     rr:predicate ex:relationenTarife;
     rr:objectMap [
-      rml:reference "relationenTarife";
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/relationenTarif/version/{tokenize(relationenTarife, ' ')}";
+      rr:termType rr:IRI ;
     ]
- ] .
+  ] .
 
  <#RelationenTarifVersion> a rr:TriplesMap ;
   rml:logicalSource [
