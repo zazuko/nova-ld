@@ -23,14 +23,25 @@
 ##
 
 <dataset/nova> a void:Dataset, dcat:Dataset ;
-    dcterms:title "NOVA"@de;
-    dcterms:description "NOVA"@de;
-    dcterms:publisher <org/FOT>;
-    dcterms:creator <org/FOT> ;
+    dcterms:title "NOVA";
+    dcterms:description "NOVA bezeichnet die öffentlichen Schnittstellen der ÖV-Plattform für die Nutzung durch konzessionierte Transportunternehmen in der Schweiz"@de;
+    dcterms:publisher <org/SBB>;
+    dcterms:creator <org/SBB> ;
     dcterms:contributor <org/Zazuko> ;
     dcterms:issued "%%DATEISSUED%%"^^xsd:date; # date of publication of the source
     dcterms:created "%%DATECREATED%%"^^xsd:dateTime;
 #    dcterms:modified "%%DATEMODIFIED%%"^^xsd:date;
     void:sparqlEndpoint <http://lod.opentransportdata.swiss/query>;
 #    duv:hasUsage <dataset/meta-usage> ;
+    schema:url <https://company.sbb.ch/de/medien/medienstelle/medienmitteilungen/detail.html/partnervertrieb/2018/06/1106-2>
 .
+
+<org/SBB> a foaf:Organization, schema:GovernmentOrganization;
+    rdfs:label "Schweizerische Bundesbahnen"@de;
+    rdfs:label "Chemins de fer fédéraux suisses"@fr;
+    rdfs:label "Ferrovie federali svizzere"@it;
+    rdfs:label "Viafiers federalas svizras"@rm;
+    rdfs:label "Swiss Federal Railways"@en;
+    foaf:homepage <https://www.sbb.ch>
+    .
+
