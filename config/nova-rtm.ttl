@@ -257,7 +257,7 @@
   rr:predicateObjectMap [
     rr:predicate ex:preisstufe;
     rr:objectMap [
-      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/sockelpreise/{./sockelPreise/@id}";
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/sockelPreise/{./sockelPreise/@id}";
       rr:termType rr:IRI ;
     ]
   ] .
@@ -278,7 +278,7 @@
   ] ;
 
   rr:subjectMap [
-    rr:template "https://lod.opentransportdata.swiss/nova/relationenTarif/version/sockelPreise/{@id}" ;
+    rr:template "https://lod.opentransportdata.swiss/nova/sockelPreise/{@id}" ;
     rr:class schema:Service ;
     rr:termType rr:IRI ;
   ] ;
@@ -294,7 +294,7 @@
   rr:predicateObjectMap [
     rr:predicate schema:offers;
     rr:objectMap [
-      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/sockelpreise/{./sockelPreise/@id}/{./preis/waehrung}";
+      carml:multiTemplate "https://lod.opentransportdata.swiss/nova/sockelPreise/{./sockelPreise/@id}/{./preis/waehrung}";
       rr:termType rr:IRI ;
     ]
   ] ;
