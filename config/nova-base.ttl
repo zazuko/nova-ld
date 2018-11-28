@@ -35,14 +35,14 @@
   ] ;
   
   rr:predicateObjectMap [
-    rr:predicate ex:partnerCode;
+    rr:predicate schema:identifier;
     rr:objectMap [
       rml:reference "partnerCode";
     ]
  ] ;
   
   rr:predicateObjectMap [
-    rr:predicate ex:partnerKuerzel;
+    rr:predicate schema:alternateName;
     rr:objectMap [
       rml:reference "partnerKuerzel";
     ]
@@ -56,7 +56,7 @@
  ] ;
   
   rr:predicateObjectMap [
-    rr:predicate ex:label;
+    rr:predicate schema:name;
     rr:objectMap [
       rml:reference "druckBezeichnung/de";
     ]
