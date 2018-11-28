@@ -23,7 +23,7 @@ INSERT { GRAPH <http://example.org/inference> {
         nova:railwayReplacement ?bahnersatz ;
         nova:uic ?didok1 ;
         nova:uic ?didok2 ;
-        nova:operator ?verwaltung .
+        nova:administration ?verwaltung .
 
 }}
 WHERE { GRAPH <http://example.org/nova> {
