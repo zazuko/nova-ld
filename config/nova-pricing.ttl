@@ -88,7 +88,7 @@
 
   rr:subjectMap [
     rr:template "https://lod.opentransportdata.swiss/nova/preisstufe/{@id}" ;
-    rr:class ex:Preisstufe ;
+    rr:class nova:Pricing ;
     rr:termType rr:IRI ;
   ] ;
 
@@ -100,7 +100,7 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:tarifwertVon;
+    rr:predicate nova:rateValueFrom;
     rr:objectMap [
       rml:reference "tarifwertVon";
       rr:datatype xsd:int ;
@@ -108,7 +108,7 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:tarifwertBis;
+    rr:predicate nova:rateValueTo;
     rr:objectMap [
       rml:reference "tarifwertBis";
       rr:datatype xsd:int ;
@@ -139,7 +139,7 @@
 
   rr:subjectMap [
     rr:template "https://lod.opentransportdata.swiss/nova/auspraegung/{@id}" ;
-    rr:class ex:Auspraegung ;
+    rr:class schema:PriceSpecification ;
     rr:termType rr:IRI ;
   ] ;
 
@@ -151,7 +151,7 @@
   ] ;
 
  rr:predicateObjectMap [
-    rr:predicate ex:betrag;
+    rr:predicate schema:price;
     rr:objectMap [
       rml:reference "./preis/betrag";
       rr:datatype xsd:double ;
@@ -159,30 +159,33 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:waehrung;
+    rr:predicate schema:currency;
     rr:objectMap [
       rml:reference "./preis/waehrung";
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:fahrausweisart;
+    rr:predicate nova:fareType;
     rr:objectMap [
-      rml:reference "fahrausweisart";
+      rr:template "https://lod.opentransportdata.swiss/nova/fahrausweisart/{fahrausweisart}";
+      rr:termType rr:IRI ; 
     ]
-  ] ;
+ ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:klassenTyp;
+    rr:predicate nova:class;
     rr:objectMap [
-      rml:reference "klassenTyp";
+      rr:template "https://lod.opentransportdata.swiss/nova/klassenTyp/{klassenTyp}";
+      rr:termType rr:IRI ; 
     ]
-  ] ;
+ ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:fahrtart;
+    rr:predicate nova:journeyType;
     rr:objectMap [
-      rml:reference "fahrtart";
+      rr:template "https://lod.opentransportdata.swiss/nova/fahrtart/{fahrtart}";
+      rr:termType rr:IRI ; 
     ]
-  ] ;
+ ] ;
 .
