@@ -16,7 +16,7 @@ PREFIX gtfs: <http://vocab.gtfs.org/terms#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 INSERT { GRAPH <http://example.org/inference> {
-    ?verwaltung nova:administration ?betreiber 
+    ?verwaltung nova:operator ?betreiber 
 }}
 WHERE { GRAPH <http://example.org/nova> {
     ?verwaltung a nova:Administration ;
