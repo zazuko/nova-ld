@@ -206,7 +206,7 @@
   ] ;
   
  rr:predicateObjectMap [
-    rr:predicate dc:identifier;
+    rr:predicate schema:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
@@ -281,19 +281,19 @@
 
   rr:subjectMap [
     rr:template "https://lod.opentransportdata.swiss/nova/verwaltung/version/{@id}" ;
-    rr:class ex:VerwaltungVersion ;
+    rr:class nova:Administration ;
     rr:termType rr:IRI ;
   ] ;
 
  rr:predicateObjectMap [
-    rr:predicate ex:identifier;
+    rr:predicate schema:identifier;
     rr:objectMap [
       rml:reference "@id";
     ]
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:validThrough;
+    rr:predicate schema:validThrough;
     rr:objectMap [
       rml:reference "@gueltigBis";
       rr:datatype xsd:date ;
@@ -301,7 +301,7 @@
  ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:validFrom;
+    rr:predicate schema:validFrom;
     rr:objectMap [
       rml:reference "@gueltigVon";
       rr:datatype xsd:date ;
@@ -309,9 +309,9 @@
  ] ;
 
    rr:predicateObjectMap [
-    rr:predicate ex:betreiber ;
+    rr:predicate ex:operator ;
     rr:objectMap [
-      rr:template "https://lod.opentransportdata.swiss/nova/betreiber/{@id}" ;
+      rr:template "https://lod.opentransportdata.swiss/nova/betreiber/{betreiber}" ;
       rr:termType rr:IRI
     ]
  ] ;
@@ -426,7 +426,7 @@
 
   rr:subjectMap [
     rr:template "https://lod.opentransportdata.swiss/nova/betreiber/{@id}" ;
-    rr:class ex:betreiber ;
+    rr:class ex:Betreiber ;
     rr:termType rr:IRI ;
   ] ;
 
@@ -482,12 +482,17 @@
     ]
  ] ;
 
-  # TODO den name scheint es gar nicht mehr zu geben im File?
-  rr:predicateObjectMap [
-    rr:predicate schema:name ;
+ rr:predicateObjectMap [
+    rr:predicate schema:name;
     rr:objectMap [
-      rr:template "https://lod.opentransportdata.swiss/nova/name/{name}" ;
-      rr:termType rr:IRI
+      rml:reference "name";
+    ]
+ ] ;
+
+ rr:predicateObjectMap [
+    rr:predicate schema:alternateName;
+    rr:objectMap [
+      rml:reference "abkuerzung";
     ]
  ] ;
 
