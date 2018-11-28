@@ -116,7 +116,7 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate ex:auspraegung;
+    rr:predicate schema:priceSpecification;
     rr:objectMap [
       carml:multiTemplate "https://lod.opentransportdata.swiss/nova/auspraegung/{./auspraegung/@id}";
       rr:termType rr:IRI ;
