@@ -153,7 +153,9 @@
   rr:predicateObjectMap [
     rr:predicate ex:tarifwert;
     rr:objectMap [
-      rml:reference "tarifwert";
+      rml:reference "tarifwert" ;
+      rr:datatype xsd:int ;
+
     ]
  ] ;
 
